@@ -120,6 +120,5 @@ impl Flanger {
         } else {
             return self.dry * x + self.wet * delayed_signal
         }
-        
     }
 }
