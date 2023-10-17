@@ -1,4 +1,4 @@
-use std::{collections::VecDeque, char::MAX};
+use std::{collections::VecDeque, char::MAX, f32::consts::PI};
 
 use crate::{lfo::{self, LFO}, delay::{Delay, self}};
 
@@ -42,8 +42,8 @@ impl Flanger {
             calculated_depth: 0.0,
             rate: 0.0,
             feedback: 0.0,
-            left_lfo: LFO::new_random_phase(sample_rate, 0.2),
-            right_lfo: LFO::new_random_phase(sample_rate, 0.2),
+            left_lfo: LFO::new_with_phase(sample_rate, 0.2, 0.0),
+            right_lfo: LFO::new_with_phase(sample_rate, 0.2, PI / 2.0),
             left_delay,
             right_delay,
             left_feedback_buffer: left_feedback_buffer,
